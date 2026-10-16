@@ -1,22 +1,28 @@
-# MotionReference — Motion Prompt Copilot Skill
+# MotionReference — offline Copilot motion Skill library
 
-This repository now uses **Motion Prompt** as its sole motion-reference source.
+**120 Motion Prompt references stored locally as original source code and specifications.** No network is required for browsing the catalog or reading the actual animations.
 
-- Reference gallery: https://showheyohtaki.github.io/motion-prompt/
-- Online catalog: https://showheyohtaki.github.io/motion-prompt/catalog.json
-- Original author/project link: https://github.com/showheyohtaki/motion-prompt
+## Layout
 
-## Copilot Agent skill
-`.github/skills/motion-prompt/SKILL.md`
+- `.github/skills/motion-prompt/SKILL.md` — GitHub Copilot Agent skill.
+- `upstream/packs/{motion,camera,ui,lp,photo}/pack.js` — **five original Canvas 2D animation packs, 24 each**.
+- `upstream/packs/{motion,camera,ui,lp,photo}/meta.json` — motion names and parameter/specification data.
+- `scripts/motion_lookup.py` — no-dependency local CLI, list / search / get.
+- `upstream/LICENSE-MIT.txt` — original MIT license; `upstream/THIRD-PARTY-NOTICES.md` — upstream notices.
 
-In this repository, ask Copilot Agent:
+## Test offline from repo root
 
-> Use the motion-prompt skill. Search the live Motion Prompt reference and implement a smooth introduction animation for a dashboard widget with reduced-motion support.
+```sh
+python scripts/motion_lookup.py list
+python scripts/motion_lookup.py search "modal"
+python scripts/motion_lookup.py get 049
+```
 
-For other repositories, copy the `.github/skills/motion-prompt/` directory to the target project's `.github/skills/` directory.
+The `pack.js` modules contain the original drawing code, not standalone individual HTML animations. Their `MotionPrompt.pack` registration depends on a runtime host for rendering; reading/searching/porting the originals does not.
 
-## Scope and attribution
+## Use in other projects
+Copy `.github/skills/motion-prompt`, **plus** `upstream/packs`, `upstream/LICENSE-MIT.txt`, `upstream/THIRD-PARTY-NOTICES.md`, and `scripts/motion_lookup.py` into the project, preserving relative paths.
 
-This project **links to** the author's reference and instructs Copilot to inspect it when online. It does **not** claim to include the full 120 animations, source code or exact parameter values. Verify licenses before mirroring original assets or implementations.
+Original author: **Shohei Ohtaki**, [Motion Prompt](https://github.com/showheyohtaki/motion-prompt). MIT license; copyright notices retained.
 
-The older independent `ui-motion-design` starter presets and Playwright capture helper have been removed.
+This is a snapshot of upstream, not an automatic mirror. The author's gallery is at https://showheyohtaki.github.io/motion-prompt/.
