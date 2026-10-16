@@ -1,35 +1,22 @@
-# Motion Reference → GitHub Copilot Agent Skills
+# MotionReference — Motion Prompt Copilot Skill
 
-Reusable UI motion-design skill inspired by [MOTION MOVEMENT REFERENCE](https://motion-reference.takayustudio.jp/).
+This repository now uses **Motion Prompt** as its sole motion-reference source.
 
-> **Data provenance:** This repository is **not an export or mirror** of the source site. The 10 starter presets are independently authored examples, **not verified parameters from that website**. The capture helper produces unverified local snapshots for manual review.
+- Reference gallery: https://showheyohtaki.github.io/motion-prompt/
+- Online catalog: https://showheyohtaki.github.io/motion-prompt/catalog.json
+- Original author/project link: https://github.com/showheyohtaki/motion-prompt
 
-## Files
+## Copilot Agent skill
+`.github/skills/motion-prompt/SKILL.md`
 
-- `.github/skills/ui-motion-design/SKILL.md` — Copilot Agent Skill instructions.
-- `.github/skills/ui-motion-design/references/presets.json` — 10 original reference presets.
-- `.github/skills/ui-motion-design/references/implementation.md` — CSS and WAAPI examples.
-- `.github/skills/ui-motion-design/references/source-notes.md` — source and license cautions.
-- `scripts/capture_site.py` — interactive local Playwright capture helper.
+In this repository, ask Copilot Agent:
 
-## Use with Copilot
+> Use the motion-prompt skill. Search the live Motion Prompt reference and implement a smooth introduction animation for a dashboard widget with reduced-motion support.
 
-This skill can be discovered when Copilot Agent operates **inside this repository**. For use in another project, copy `.github/skills/ui-motion-design/` to that project's `.github/skills/` or install the skill to your supported personal skills directory.
+For other repositories, copy the `.github/skills/motion-prompt/` directory to the target project's `.github/skills/` directory.
 
-Suggested prompt:
+## Scope and attribution
 
-> Use the ui-motion-design skill to animate a modal opening, respecting prefers-reduced-motion and the current frontend stack.
+This project **links to** the author's reference and instructs Copilot to inspect it when online. It does **not** claim to include the full 120 animations, source code or exact parameter values. Verify licenses before mirroring original assets or implementations.
 
-## Optional local capture
-
-```bash
-pip install playwright
-python -m playwright install chromium
-python scripts/capture_site.py
-```
-
-Interactively select a motion reference in the browser and press Enter in the terminal to save a screenshot and DOM animation metadata in ignored `captures/`. DOM data is **not necessarily exact source animation parameters**; verify before importing.
-
-## Rights
-
-Respect the source author's terms and permission requirements. Do not publish bulk-copied source datasets, images or proprietary implementation code without authorization.
+The older independent `ui-motion-design` starter presets and Playwright capture helper have been removed.
