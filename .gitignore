@@ -1,4 +1,4 @@
-captures/
+# Local/generated work
+.env
 __pycache__/
 *.pyc
-.env
