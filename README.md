@@ -26,3 +26,20 @@ Copy `.github/skills/motion-prompt`, **plus** `upstream/packs`, `upstream/LICENS
 Original author: **Shohei Ohtaki**, [Motion Prompt](https://github.com/showheyohtaki/motion-prompt). MIT license; copyright notices retained.
 
 This is a snapshot of upstream, not an automatic mirror. The author's gallery is at https://showheyohtaki.github.io/motion-prompt/.
+
+
+## Sakuga VFX branch (this branch only)
+
+This `sakuga-vfx` branch preserves the existing Motion Prompt library from `main` and adds a separately vendored Sakuga VFX snapshot under `sakuga-vfx/`. **The `main` branch remains unchanged.**
+
+- Original author: [finktheartist/sakuga-vfx](https://github.com/finktheartist/sakuga-vfx)
+- Website: https://sakuga-vfx.vercel.app/gallery/
+- License: MIT, retained in [sakuga-vfx/LICENSE](sakuga-vfx/LICENSE)
+- Original, standalone Web Components: `button`, `toggle`, `slider`, `checkbox`, `radio`, `input`, `tabs`, `progress`, `rating`, `toast`, `tooltip` (**11 source files**; upstream README calls them 12 but lists only these 11)
+- Agent Skill: [.github/skills/sakuga-vfx/SKILL.md](.github/skills/sakuga-vfx/SKILL.md), with its bundled `core.js`, `starter.html`, `look.mjs`
+- Local preview: `cd sakuga-vfx && python -m http.server 8000` then open `http://localhost:8000/gallery/` (no CDN dependency; no internet required for stored source)
+- Use an individual component by copying its `<component>/<component>.js` into your web project and loading it with a traditional `<script src="..."></script>` tag. Do not load as an ES module.
+
+Upstream has a few separate source art assets, but each component embeds the necessary artwork/core according to the upstream README; binary original authoring assets are not mirrored. The included gallery and components can run with a browser, though real-device compatibility was not independently tested in this branch.
+
+**Updating later:** refresh the vendored `sakuga-vfx/` files on this branch only after comparing new upstream content and preserving the original MIT license. Do not merge into `main` unless you specifically want both libraries on the main branch.
